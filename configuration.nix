@@ -119,7 +119,7 @@
      curl
 
      helix.packages."${pkgs.system}".helix
-     neovim.packages."${pkgs.system}".neovim
+     neovim.defaultPackage.x86_64-linux
   ];
   environment.variables.EDITOR = "nvim";
 
