@@ -17,6 +17,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix/23.05";
+    neovim.url = "github:amir-shah-dev/neovim-flake";
   };
 
   # `outputs` are all the build result of the flake.

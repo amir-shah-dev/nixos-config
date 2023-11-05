@@ -5,6 +5,6 @@
 }: {
   imports = [
     ./micro.nix
-    ./neovim.nix
+#    ./neovim.nix
   ];
 }
