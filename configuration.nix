@@ -107,9 +107,7 @@
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
      # micro
-     librewolf
      nb
-     thunderbird
      zoom-us
      pass
      screen
@@ -117,11 +115,28 @@
      git
      wget
      curl
+     gnome.gnome-tweaks
 
      helix.packages."${pkgs.system}".helix
      neovim.defaultPackage.x86_64-linux
   ];
   environment.variables.EDITOR = "nvim";
+
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+        jetbrains-mono
+        noto-fonts
+    ];
+
+    fontconfig = {
+        defaultFonts = {
+            serif = ["jetbrains-mono" "noto-sans"];
+            sansSerif = ["jetbrains-mono" "noto-sans"];
+            monospace = ["jetbrains-mono"];
+        };
+    };
+  };
 
   networking.extraHosts =
     ''
