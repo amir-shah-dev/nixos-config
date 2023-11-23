@@ -86,7 +86,7 @@
     isNormalUser = true;
     description = "amir";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -121,6 +121,11 @@
      neovim.defaultPackage.x86_64-linux
   ];
   environment.variables.EDITOR = "nvim";
+#  environment.interactiveShellInit = ''
+#  alias ls='lsd'
+#'';
+
+
 
   fonts = {
     enableDefaultPackages = true;
