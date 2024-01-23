@@ -16,6 +16,9 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  
+  hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver.daemon.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -29,6 +32,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.supportedLocales = ["all"];
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
@@ -51,8 +55,9 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "gb";
+    layout = "gb,ara";
     xkbVariant = "";
+    xkbOptions = "grp:win_space_toggle";
   };
 
   # Configure console keymap
@@ -116,6 +121,7 @@
      wget
      curl
      gnome.gnome-tweaks
+     libgcc
 
      helix.packages."${pkgs.system}".helix
      neovim.defaultPackage.x86_64-linux
