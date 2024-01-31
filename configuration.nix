@@ -122,6 +122,9 @@
      curl
      gnome.gnome-tweaks
      libgcc
+     gcc13
+    xclip
+
 
      helix.packages."${pkgs.system}".helix
      neovim.defaultPackage.x86_64-linux
@@ -201,16 +204,16 @@
 	};
     };
 
-    systemd.services."drive-sync" = {
-	script = ''
-		set -eu
-		${pkgs.rclone}/bin/rclone sync /home/amir/Documents/drive pd-remote:drive --fast-list
-	'';
-	serviceConfig = {
-		Type = "oneshot";
-		User = "amir";
-	};
-    };
+ #    systemd.services."drive-sync" = {
+	# script = ''
+	# 	set -eu
+	# 	${pkgs.rclone}/bin/rclone sync /home/amir/Documents/drive pd-remote:drive --fast-list
+	# '';
+	# serviceConfig = {
+	# 	Type = "oneshot";
+	# 	User = "amir";
+	# };
+ #    };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
