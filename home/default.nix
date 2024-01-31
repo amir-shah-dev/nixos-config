@@ -20,6 +20,9 @@
 		jetbrains.pycharm-professional
 		jetbrains.webstorm
 		python3
+    poetry
+    nodePackages.pyright
+    black
         thonny
         anki
         xournalpp
