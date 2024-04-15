@@ -55,6 +55,12 @@
            sha256 = "sha256:0rgqkys36lvdxlsc81s1dp8gwgxyzl4s6j68x2ivixsc714pgxvc";
            version = "2.6.2";
          })
+         (createChromiumExtension {
+           # Metamask
+           id = "nkbihfbeogaeaoehlefnkodbefgpgknn";
+           sha256 = "sha256:016dyg0dmjnwhvvrknw1ahabi492x1yvd2asbk8hr2rldnakp5xq";
+           version = "11.9.0";
+         })
        ];
      commandLineArgs = [
       "--force-dark-mode"
