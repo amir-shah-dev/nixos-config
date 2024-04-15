@@ -124,6 +124,7 @@
      libgcc
      gcc13
     xclip
+    protonmail-desktop
 
 
      helix.packages."${pkgs.system}".helix
