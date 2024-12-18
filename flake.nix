@@ -99,6 +99,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
             home-manager.users.amir = import ./home;
+            home-manager.backupFileExtension = "backup";
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }

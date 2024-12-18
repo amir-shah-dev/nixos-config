@@ -20,6 +20,9 @@
   hardware.opentabletdriver.enable = true;
   hardware.opentabletdriver.daemon.enable = true;
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -28,7 +31,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = "Africa/Casablanca";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -47,18 +50,25 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable KDE Plasma
+  services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  # services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "gb,ara";
-    xkbVariant = "";
-    xkbOptions = "grp:win_space_toggle";
-  };
+  # services.xserver = {
+  #  layout = "gb,ara";
+  #  xkbVariant = "";
+  #  xkbOptions = "grp:win_space_toggle";
+  # };
 
   # Configure console keymap
   console.keyMap = "uk";
@@ -67,7 +77,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -99,6 +109,9 @@
   };
   programs.zsh.enable = true;
   environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
+
+#  programs.hyprland.enable = true; # enable Hyprland
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -120,12 +133,11 @@
      git
      wget
      curl
-     gnome.gnome-tweaks
      libgcc
      gcc13
     xclip
-    protonmail-desktop
-
+    unrar
+    kitty
 
      helix.packages."${pkgs.system}".helix
      neovim.defaultPackage.x86_64-linux
@@ -155,6 +167,7 @@
 
   networking.extraHosts =
     ''
+      127.0.0.1 nixos
       #<no-surf>
       # 127.0.0.1	reddit.com
       # 127.0.0.1	www.reddit.com
@@ -196,14 +209,6 @@
       # };
     # };
 
-    systemd.timers."drive-sync" = {
-	wantedBy = [ "timers.target" ];
-	timerConfig = {
-		OnBootSec = "15m";
-		OnUnitActiveSec = "2h";
-		Unit = "drive-sync.service";
-	};
-    };
 
  #    systemd.services."drive-sync" = {
 	# script = ''

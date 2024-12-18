@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./micro.nix
+    ./spacemacs.nix
 #    ./neovim.nix
   ];
 }

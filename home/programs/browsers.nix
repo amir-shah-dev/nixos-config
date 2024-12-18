@@ -61,6 +61,18 @@
            sha256 = "sha256:016dyg0dmjnwhvvrknw1ahabi492x1yvd2asbk8hr2rldnakp5xq";
            version = "11.9.0";
          })
+         (createChromiumExtension {
+           # Plasma Integration
+           id = "cimiefiiaegbelhefglklhhakcgmhkai";
+           sha256 = "sha256:19v69mif1v5d2s0w50g3jc94r77lcpqn6rx76nv654zw9vazmqk7";
+           version = "1.9";
+         })
+         (createChromiumExtension {
+           # Google docs offline
+           id = "ghbmnnjooekpmoecnnnilnnbdlolhkhi";
+           sha256 = "sha256:17kwm8r9s8vby7zldbrc13lc3p4ygs5nq2q03hf26vjcrd957w0r";
+           version = "1.84.1";
+         })
        ];
      commandLineArgs = [
       "--force-dark-mode"
